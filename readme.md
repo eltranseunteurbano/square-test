@@ -2,10 +2,10 @@
 
 ### Technologies
 
-[x] Vite
-[x] AlpineJs
-[x] Talwind Css
-[] eslint - prettier
+[X] Vite
+[X] AlpineJs
+[X] Talwind Css
+[ ] eslint - prettier
 
 ### Install
 `yarn install`
