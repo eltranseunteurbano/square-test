@@ -2,9 +2,9 @@
 
 ### Technologies
 
-[] Vite
-[] AlpineJs
-[] Talwind Css
+[x] Vite
+[x] AlpineJs
+[x] Talwind Css
 [] eslint - prettier
 
 ### Install
