@@ -4,25 +4,249 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">    <title>Square 1 - Test</title>
   </head>
-  <body>
-    <div x-data>
-      <h1 class="text-red-700">
-        Welcome to the
-        <span x-text="$store.shop.name">shop-name</span>
-      </h1>
-      <div class="bg-black">
-        Here you can buy:
-
-        <ul>
-          <template x-for="product in $store.shop.products">
-            <li x-text="product"></li>
-          </template>
-        </ul>
+  <body class="bg-emerald">
+    <x-dropdown></x-dropdown>
+    <header class="bg-black w-full h-20"></header>
+    <x-card></x-card>
+    <main class="p-3 box-border">
+      <div class="hero mb-9">
+        <img src="https://mx.web.img3.acsta.net/c_310_420/pictures/22/04/04/20/44/3951520.jpg" class="w-full h-40 px-3 box-border mt-6 mb-12"/>
+        <h3 class="text-white text-center font-sans text-2xl font-semibold mb-4">TV You Love, Hand-Picked by NOW</h3>
+        <p class="text-white text-center font-sans text-lg leading-6 mb-1">Why watch the same old TV on repeat when you can get stuck into unmissable new box sets and the latest blockbusters, courtesy of NOW.</p>
+        <p class="text-white text-center font-sans text-lg leading-6">Explore the articles below to read about some of the latest and greatest TV show and movies available to stream with a NOW Entertainment Membership.</p>
       </div>
+      <section>
+        <nav class="w-full border-b-2 border-solid border-blue flex flex-row gap-x-8 mb-12 pb-2">
+          <a href="#cinema" class="route-active text-base font-semibold">Cinema</a>
+          <a href="#Entertainment" class="text-white text-base font-semibold">Entertainment</a>
+        </nav>
+        <article class="w-full mb-14">
+          <h3 class="sections-title">NEW RELEASES</h3>
+          <div class="py-5 flex flex-col gap-y-4">
+            <div class="vertical-card bg-grass rounded-sm overflow-hidden">
+              <div>
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMJrDbmwlHb1zw01uX85VQVjAbbjlGjj9gk7Bjl-AfGJ3schp3B75TU32BY_FUrLrnyo&usqp=CAU"
+                  alt="Euphoria"
+                />
+              </div>
+              <div class="p-6 box-border">
+                <h4 class="text-white text-xl font-semibold capitalize mb-6">Euphoria</h4>
+                <div class="text-base flex flex-row gap-2 opacity-70 uppercase">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://i.ytimg.com/sh/qZB-Cas1hJo1w7F026hhaQ/market.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">The gilded age</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://mx.web.img3.acsta.net/c_310_420/pictures/22/04/04/20/44/3951520.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">Bel-Air</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://mx.web.img2.acsta.net/c_310_420/pictures/21/02/01/10/42/3954575.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">The equalizer</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
 
-    </div>
+        <article class="w-full mb-14">
+          <h3 class="sections-title">TRENDING</h3>
+          <div class="py-4 flex flex-col gap-y-4">
+            <div class="vertical-card bg-grass rounded-sm overflow-hidden">
+              <div>
+                <img
+                  class="w-full object-contain"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMJrDbmwlHb1zw01uX85VQVjAbbjlGjj9gk7Bjl-AfGJ3schp3B75TU32BY_FUrLrnyo&usqp=CAU"
+                  alt="Euphoria"
+                />
+              </div>
+              <div class="p-4">
+                <h4 class="text-white text-base font-semibold capitalize mb-4">Euphoria</h4>
+                <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://i.ytimg.com/sh/qZB-Cas1hJo1w7F026hhaQ/market.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">The gilded age</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://mx.web.img3.acsta.net/c_310_420/pictures/22/04/04/20/44/3951520.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">Bel-Air</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://mx.web.img2.acsta.net/c_310_420/pictures/21/02/01/10/42/3954575.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">The equalizer</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="w-full mb-14">
+          <h3 class="sections-title">VIDEO</h3>
+          <div class="py-4 flex flex-col gap-y-4">
+            <div class="vertical-card bg-grass rounded-sm overflow-hidden">
+              <div>
+                <img
+                  class="w-full object-contain"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMJrDbmwlHb1zw01uX85VQVjAbbjlGjj9gk7Bjl-AfGJ3schp3B75TU32BY_FUrLrnyo&usqp=CAU"
+                  alt="Euphoria"
+                />
+              </div>
+              <div class="p-4">
+                <h4 class="text-white text-base font-semibold capitalize mb-4">Euphoria</h4>
+                <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://i.ytimg.com/sh/qZB-Cas1hJo1w7F026hhaQ/market.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">The gilded age</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://mx.web.img3.acsta.net/c_310_420/pictures/22/04/04/20/44/3951520.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">Bel-Air</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+            <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
+              <div class="col-span-2">
+                <img
+                  class="w-full object-cover aspect-video"
+                  src="https://mx.web.img2.acsta.net/c_310_420/pictures/21/02/01/10/42/3954575.jpg"
+                  alt=""
+                />
+              </div>
+              <div class="px-4 col-span-3 flex flex-col justify-center item-start">
+                <h4 class="text-white text-sm font-semibold capitalize mb-2">The equalizer</h4>
+                <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
+                  <span class="text-white">ACTION</span>
+                  <span class="text-blue">/</span>
+                  <span class="text-white">6 Shares</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
