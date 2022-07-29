@@ -7,7 +7,13 @@
     @apply text-blue no-underline
   }
   .sections-title {
-    @apply text-2xl uppercase text-white text-left font-semibold pb-2 border-b-4 border-solid border-blue
+    @apply text-lg uppercase text-white text-left font-semibold pb-2 border-b-[3px] border-solid border-blue
+  }
+  .main-btn {
+    @apply bg-blue text-white text-xs p-3 font-semibold
+  }
+  .second-btn {
+    @apply bg-grass text-white text-xs p-3 font-semibold
   }
 }
 

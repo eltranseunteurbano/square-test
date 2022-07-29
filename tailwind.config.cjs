@@ -17,7 +17,9 @@ module.exports = {
       sans: ['Montserrat', 'sans-serif']
     },
     extend: {
-
+      fontSize: {
+        'xxs': ['0.6rem', '0.7rem']
+      }
     },
   },
   plugins: [],
