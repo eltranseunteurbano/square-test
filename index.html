@@ -9,92 +9,243 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">    <title>Square 1 - Test</title>
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
-  <body
-    class="bg-emerald"
-    x-data="{
-      sections: [
-        {
-          title: 'New releases',
-          showMore: false,
-          hugeContent: [
-            {
-              title: 'Euphoria',
-              img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMJrDbmwlHb1zw01uX85VQVjAbbjlGjj9gk7Bjl-AfGJ3schp3B75TU32BY_FUrLrnyo&usqp=CAU',
-              shares: 60,
-              tag: 'Action',
-            }
-          ],
+  <body class="bg-yellow">
+  <header class="bg-black w-full h-20">
+    <div
+      class="
+        border-b
+        border-white
+        border-solid
+        border-opacity-25
+        p-2
+        box-border
+        flex
+        flex-row
+        justify-between
+        items-center
+      "
+    >
+      <i data-feather="search" class="w-8 text-yellow"></i>
+      <img
+        src="/joe-logo.svg"
+        alt="Joe"
+        class="w-full h-8"
+      />
+      <i data-feather="menu" class="w-8 text-yellow"></i>
+    </div>
+    <nav class="w-full flex flex-row justify-center gap-4 text-xxs p-2">
+      <p class="text-yellow uppercase">TRENDING:</p>
+      <a href="#" class="text-white">Home News</a>
+      <a href="#" class="text-white">The Big Reviewski</a>
+      <a href="#" class="text-white">Quiz</a>
+    </nav>
+  </header>
+  <main class="p-3 box-border max-w-4xl m-auto bg-emerald sm:p-4">
+    <div class="hero mb-9">
+      <img src="https://mx.web.img3.acsta.net/c_310_420/pictures/22/04/04/20/44/3951520.jpg" class="w-full h-40 px-3 box-border mt-6 mb-12"/>
+      <h3 class="text-white text-center font-sans text-lg font-semibold mb-4">TV You Love, Hand-Picked by NOW</h3>
+      <p class="text-white text-center font-sans text-sm leading-6 mb-1">Why watch the same old TV on repeat when you can get stuck into unmissable new box sets and the latest blockbusters, courtesy of NOW.</p>
+      <p class="text-white text-center font-sans text-sm leading-6">Explore the articles below to read about some of the latest and greatest TV show and movies available to stream with a NOW Entertainment Membership.</p>
+    </div>
+    <section>
+      <nav class="w-full border-b border-solid border-blue flex flex-row gap-x-8 mb-12 pb-2">
+        <a href="#cinema" class="route-active text-sm font-semibold">Cinema</a>
+        <a href="#Entertainment" class="text-white text-sm font-semibold">Entertainment</a>
+      </nav>
+      <div class="flex flex-col gap-y-10">
+        <article class="w-full" x-data="{
+          title: 'New Releases',
           content: [
             {
+              title: 'Euphoria',
+              img: '/content/euphoria.jpg',
+              shares: 60,
+              tag: 'Action',
+            },
+            {
               title: 'The gilded age',
-              img: 'https://i.ytimg.com/sh/qZB-Cas1hJo1w7F026hhaQ/market.jpg',
+              img: '/content/TheGildedAge.jpg',
               shares: 2,
               tag: 'Action'
             }, {
               title: 'Bel-Air',
-              img: 'https://mx.web.img3.acsta.net/c_310_420/pictures/22/04/04/20/44/3951520.jpg',
+              img: '/content/belair.jpg',
               shares: 3,
               tag: 'Action'
             }, {
               title: 'The Equalizer',
-              img: 'https://mx.web.img2.acsta.net/c_310_420/pictures/21/02/01/10/42/3954575.jpg',
+              img: '/content/Equalizer.jpg',
               shares: 6,
               tag: 'Action'
             }
-          ]
-        }, {
-          title: 'Trending',
-          showMore: true,
-          hugeContent: [
-            {
-              title: 'Billions',
-              img: 'https://vader.news/__export/1618256258609/sites/gadgets/img/2021/04/12/billions_temporada_6.jpeg_529774002.jpeg',
-              shares: 4,
-              tag: 'Action',
-            }
           ],
+        }">
+          <h3 class="sections-title" x-text="title"></h3>
+          <div class="py-5 flex flex-col gap-4 sm:grid sm:grid-cols-2">
+            <template x-for="(card, index) in content">
+              <div
+                :class="
+                  index === 0
+                  ? 'bg-grass rounded-sm overflow-hidden'
+                  : 'bg-grass rounded-sm overflow-hidden grid grid-cols-5 sm:grid-cols-none'
+                "
+              >
+                <div 
+                  :class="
+                  index === 0
+                  ? ''
+                  : 'col-span-2 sm:col-span-1'"
+                >
+                  <img
+                    class="w-full object-cover aspect-video"
+                    :src="card.img"
+                    :alt="card.title"
+                  />
+                </div>
+                <div 
+                :class="
+                  index === 0
+                  ? 'p-4 box-border'
+                  : 'px-4 col-span-3 flex flex-col justify-center item-start box-border sm:p-4 sm:col-span-1'
+                ">
+                  <h4 class="text-white text-base font-semibold capitalize mb-4" x-text="card.title"></h4>
+                  <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
+                    <span class="text-white" x-text="card.tag"></span>
+                    <span class="text-blue">/</span>
+                    <span class="text-white" x-text="card.shares + ' shares'"></span>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <div class="
+              flex flex-col
+              mt-4
+              rounded-sm 
+              overflow-hidden
+              sm:col-span-2
+              sm:flex-row-reverse
+              sm:bg-black
+            ">
+              <div class="mb-4 relative sm:mb-0 sm:-ml-60">
+                <div class="hidden absolute top-0 left-0 w-80 h-full bg-gradient-to-r z-10 from-black sm:block"></div>
+                <img
+                  class="w-full object-cover aspect-video sm:w-auto sm:h-full"
+                  src="/content/umbrella.jpg"
+                  alt="Get 4 months for €7.50 per month"
+                />
+              </div>
+              <div
+                class="
+                  box-border
+                  sm:col-span-2
+                  sm:p-8
+                  sm:py-20
+                  sm:max-w-lg
+                  sm:z-20
+                ">
+                <div class="text-white opacity-90 mb-4">
+                  <p class="text-base mb-2 sm:text-xl">
+                    <span>Get 4 months for €7.50 per month.</span>
+                    <span class="line-through block">€15pm</span>
+                  </p>
+                  <p class="text-sm sm:text-xs">Discover unmissable shows and awatd-winning box sets.</p>
+                </div>
+
+                <footer class="flex flex-col gap-2 mb-6">
+                  <button class="w-full main-btn sm:w-44">Claim offer</button>
+                  <button class="w-full second-btn sm:w-44">Or start 7 day free trial</button>
+                </footer>
+                <p class="text-white text-xxs tracking-wide opacity-80">After offer or free trial. Entertainment Membership auto renews at €15pm, unless cancelled. Cancel anytime.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="w-full" x-data="{
+          title: 'Trending',
           content: [
             {
               title: '9-1-1',
-              img: 'https://1.bp.blogspot.com/-jeD150owDEk/YDf9nCKSIBI/AAAAAAAA2tM/IrzoIq9_APYsl3bPHp-enYvx4-cSGLGvgCLcBGAsYHQ/s1920/911%2Bcuarta%2Btemporada%2Bstar%2Bchannel.jpg',
+              img: '/content/911.jpg',
               shares: 5,
               tag: 'Action'
             }, {
               title: 'Resident Alien',
-              img: 'https://www.elseptimoarte.net/imagenes/noticias/115423.jpeg',
+              img: '/content/resident-alien.jpeg',
               shares: 8,
               tag: 'Action'
             }, {
               title: 'Chernobyl: The Lost Tapes',
-              img: 'https://i1.wp.com/www.hugozapata.com.ar/wp-content/uploads/2022/07/chernobyl-001.jpg?resize=678%2C380',
+              img: '/content/chernobil.webp',
               shares: 6,
               tag: 'Action'
             }, {
               title: 'Chicago Med',
-              img: 'https://imusic.b-cdn.net/images/item/original/328/5053083166328.jpg?chicago-med-2019-chicago-med-season-3-dvd&class=scaled',
+              img: '/content/chicago.webp',
               shares: 6,
               tag: 'Action'
             }, {
               title: 'SEAL Team',
-              img: 'https://images-na.ssl-images-amazon.com/images/I/81dNpUQFTjL._RI_.jpg',
+              img: '/content/seal.jpg',
               shares: 6,
               tag: 'Action'
             }, {
               title: 'Only Fools and Horses',
-              img: 'https://upload.wikimedia.org/wikipedia/en/3/3a/Only_fools_logo.jpg',
+              img: '/content/fools.jpg',
               shares: 6,
               tag: 'Action'
             }, {
               title: 'Chicago PD',
-              img: 'https://www.justwatch.com/images/poster/217827997/s332/temporada-8',
+              img: '/content/chicagopd.jpg',
               shares: 6,
               tag: 'Action'
             }
           ]
-        }, {
+        }">
+          <h3 class="sections-title" x-text="title"></h3>
+          <div class="py-5 flex flex-col gap-4 sm:grid sm:grid-cols-2">
+            <template x-for="(card, index) in content">
+              <div
+                :class="
+                  index === 0
+                  ? 'bg-grass rounded-sm overflow-hidden'
+                  : 'bg-grass rounded-sm overflow-hidden grid grid-cols-5 sm:grid-cols-none'
+                "
+              >
+                <div 
+                  :class="
+                  index === 0
+                  ? ''
+                  : 'col-span-2 sm:col-span-1'"
+                >
+                  <img
+                    class="w-full object-cover aspect-video"
+                    :src="card.img"
+                    :alt="card.title"
+                  />
+                </div>
+                <div 
+                :class="
+                  index === 0
+                  ? 'p-4 box-border'
+                  : 'px-4 col-span-3 flex flex-col justify-center item-start box-border sm:p-4 sm:col-span-1'
+                ">
+                  <h4 class="text-white text-base font-semibold capitalize mb-4" x-text="card.title"></h4>
+                  <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
+                    <span class="text-white" x-text="card.tag"></span>
+                    <span class="text-blue">/</span>
+                    <span class="text-white" x-text="card.shares + ' shares'"></span>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <button class="w-full main-btn capitalize">
+              Show more
+            </button>
+          </div>
+        </article>
+        <article class="w-full" x-data="{
           title: 'Video',
-          showMore: false,
-          hugeContent: [
+          content: [
             {
               title: 'Colin Farrel picks some incredible Irish actos to play future Batman villains',
               img: 'https://img.maximummedia.ie/joe_ie/eyJkYXRhIjoie1widXJsXCI6XCJodHRwOlxcXC9cXFwvbWVkaWEtam9lLm1heGltdW1tZWRpYS5pZS5zMy5hbWF6b25hd3MuY29tXFxcL3dwLWNvbnRlbnRcXFwvdXBsb2Fkc1xcXC8yMDIyXFxcLzAyXFxcLzI4MTUwMTE3XFxcL015LXByb2plY3QtNTkucG5nXCIsXCJ3aWR0aFwiOjY0NyxcImhlaWdodFwiOjM0MCxcImRlZmF1bHRcIjpcImh0dHBzOlxcXC9cXFwvd3d3LmpvZS5pZVxcXC9hc3NldHNcXFwvaW1hZ2VzXFxcL2pvZVxcXC9uby1pbWFnZS5wbmc_aWQ9MjY0YTJkYmUzNzBmMmM2NzVmY2RcIixcIm9wdGlvbnNcIjpbXX0iLCJoYXNoIjoiMGJjYjM0YmFhN2JjMDBlOTNiZGVjOGU4OWYwYjIwZjJkZTU4NGZjNiJ9/my-project-59.png',
@@ -114,138 +265,35 @@
               tag: 'Action',
               isWatch: true
             }
-          ],
-          content: []
-        }
-      ]
-    }"
-  >
- <header class="bg-black w-full h-20">
-  <div
-    class="
-      border-b
-      border-white
-      border-solid
-      border-opacity-25
-      p-2
-      box-border
-      flex
-      flex-row
-      justify-between
-      items-center
-    "
-  >
-    <i data-feather="search" class="w-8 text-yellow"></i>
-    <img
-      src="https://www.joe.ie/assets/images/joe/main-logo.svg?id=8967a11632c9277ef69f"
-      alt="Joe"
-      class="w-full h-8"
-    />
-    <i data-feather="menu" class="w-8 text-yellow"></i>
-  </div>
-  <nav class="w-full flex flex-row justify-center gap-4 text-xxs p-2">
-    <p class="text-yellow uppercase">TRENDING:</p>
-    <a href="#" class="text-white">Home News</a>
-    <a href="#" class="text-white">The Big Reviewski</a>
-    <a href="#" class="text-white">Quiz</a>
-  </nav>
- </header>
-    <main class="p-3 box-border">
-      <div class="hero mb-9">
-        <img src="https://mx.web.img3.acsta.net/c_310_420/pictures/22/04/04/20/44/3951520.jpg" class="w-full h-40 px-3 box-border mt-6 mb-12"/>
-        <h3 class="text-white text-center font-sans text-lg font-semibold mb-4">TV You Love, Hand-Picked by NOW</h3>
-        <p class="text-white text-center font-sans text-sm leading-6 mb-1">Why watch the same old TV on repeat when you can get stuck into unmissable new box sets and the latest blockbusters, courtesy of NOW.</p>
-        <p class="text-white text-center font-sans text-sm leading-6">Explore the articles below to read about some of the latest and greatest TV show and movies available to stream with a NOW Entertainment Membership.</p>
-      </div>
-      <section>
-        <nav class="w-full border-b border-solid border-blue flex flex-row gap-x-8 mb-12 pb-2">
-          <a href="#cinema" class="route-active text-sm font-semibold">Cinema</a>
-          <a href="#Entertainment" class="text-white text-sm font-semibold">Entertainment</a>
-        </nav>
-        <div class="flex flex-col gap-y-10">
-          <template x-for="(section, index) in sections">
-            <article class="w-full">
-              <h3 class="sections-title" x-text="section.title"></h3>
-              <div class="py-5 flex flex-col gap-y-4">
-                <template x-for="hugeCard in section.hugeContent">
-                  <div class="vertical-card bg-grass rounded-sm overflow-hidden">
-                    <div>
-                      <img
-                        class="w-full object-cover aspect-video"
-                        :src="hugeCard.img"
-                        :alt="hugeCard.title"
-                      />
-                    </div>
-                    <div class="p-4 box-border">
-                      <h4 class="text-white text-base font-semibold capitalize mb-4">
-                        <template x-if="hugeCard.isWatch">
-                          <span>WATCH:</span>
-                        </template>
-                        <span x-text="hugeCard.title"></span>
-                      </h4>
-                      <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
-                        <span class="text-white" x-text="hugeCard.tag"></span>
-                        <span class="text-blue">/</span>
-                        <span class="text-white"  x-text="hugeCard.shares + ' shares'"></span>
-                      </div>
-                    </div>
+          ]
+        }">
+          <h3 class="sections-title" x-text="title"></h3>
+          <div class="py-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <template x-for="card in content">
+              <div class="bg-grass rounded-sm overflow-hidden">
+                <div>
+                  <img
+                    class="w-full object-cover aspect-video"
+                    :src="card.img"
+                    :alt="card.title"
+                  />
+                </div>
+                <div class="p-4 box-border">
+                  <h4 class="text-white text-base font-semibold capitalize mb-4" x-text="card.title"></h4>
+                  <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
+                    <span class="text-white" x-text="card.tag"></span>
+                    <span class="text-blue">/</span>
+                    <span class="text-white" x-text="card.shares + ' shares'"></span>
                   </div>
-                </template>
-                <template x-for="card in section.content">
-                  <div class="horizontal-card bg-grass rounded-sm overflow-hidden grid grid-cols-5">
-                    <div class="col-span-2">
-                      <img
-                        class="w-full object-cover aspect-video"
-                        :src="card.img"
-                        :alt="card.title"
-                      />
-                    </div>
-                    <div class="px-4 col-span-3 flex flex-col justify-center item-start">
-                      <h4 class="text-white text-sm font-semibold capitalize mb-1" x-text="card.title"></h4>
-                      <div class="text-xs font-light uppercase flex flex-row gap-2 opacity-70">
-                        <span class="text-white" x-text="card.tag"></span>
-                        <span class="text-blue">/</span>
-                        <span class="text-white" x-text="card.shares + ' shares'"></span>
-                      </div>
-                    </div>
-                  </div>
-                </template>
-                <template x-if="index === 0">
-                  <div class="mt-4">
-                    <div class="mb-4">
-                      <img
-                        class="w-full object-cover aspect-video"
-                        src="https://occ-0-778-2568.1.nflxso.net/dnm/api/v6/9pS1daC2n6UGc3dUogvWIPMR_OU/AAAABen8ZGGCBsN1u6Sjrtp4F3DO56ej2Uaq1ITHc91iUOa6DUNtWH0JfpPG1eSm-kh0FIUfKNvz6nSZMIX-fA4bJjaExnbDIQchhbsv93tXMxJynZLLbKcl23yp.jpg?r=f3c"
-                        alt="Get 4 months for €7.50 per month"
-                      />
-                    </div>
-                    <div>
-                      <div class="text-white opacity-90 mb-4">
-                          <p>Get 4 months for €7.50 per month.</p>
-                          <p class="mb-4 line-through">€15pm</p>
-                          <p class="text-sm">Discover unmissable shows and awatd-winning box sets.</p>
-                      </div>
-
-                      <footer class="flex flex-col gap-2 mb-6">
-                        <button class="w-full main-btn">Claim offer</button>
-                        <button class="w-full second-btn">Or start 7 day free trial</button>
-                      </footer>
-                      <p class="text-white text-xxs tracking-wide opacity-80">After offer or free trial. Entertainment Membership auto renews at €15pm, unless cancelled. Cancel anytime.</p>
-                    </div>
-                  </div>
-                </template>
+                </div>
               </div>
-              <template x-if="section.showMore">
-                <button class="w-full main-btn capitalize">
-                Show more
-              </button>
-              </template>
-            </article>
-          </template>
-        </div>
-      </section>
-    </main>
-    <script type="module" src="/src/main.ts"></script>
+            </template>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/src/main.ts"></script>
   </body>
   <script>
     feather.replace()
