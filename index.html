@@ -13,7 +13,10 @@
   <header class="bg-black w-full h-20">
     <div
       class="
+        w-full
+        max-w-4xl
         border-b
+        mx-auto
         border-white
         border-solid
         border-opacity-25
@@ -23,22 +26,51 @@
         flex-row
         justify-between
         items-center
+        menu:items-start
+        menu:border-none
       "
     >
-      <i data-feather="search" class="w-8 text-yellow"></i>
+      <i data-feather="search" class="w-8 text-yellow menu:order-3 cursor-pointer menu:text-white menu:w-4 menu:hover:text-yellow"></i>
       <img
         src="/joe-logo.svg"
         alt="Joe"
-        class="w-full h-8"
+        class="w-full h-8 menu:w-auto"
       />
-      <i data-feather="menu" class="w-8 text-yellow"></i>
+      <nav class="hidden w-full flex-row justify-center items-stretch gap-4 text-xs box-border uppercase menu:flex">
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100">Home</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100">News</a>
+        <div class="w-6">
+          <img src="/joe-player.webp" alt="Joe Player" class="w-full" />
+        </div>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100">Music</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100">Movies & TV</a>
+        <div class="w-10">
+          <img src="/joe-sports.svg" alt="Joe Player" class="w-full" />
+        </div>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100">Sports</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100">Quiz</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100">Politics</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100">Shows</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 flex items-start gap-1">More <i data-feather="chevron-down" class="w-4 -mt-1"></i></a>
+      </nav>
+      <i data-feather="menu" class="w-8 text-yellow menu:hidden"></i>
     </div>
-    <nav class="w-full flex flex-row justify-center gap-4 text-xxs p-2">
-      <p class="text-yellow uppercase">TRENDING:</p>
-      <a href="#" class="text-white">Home News</a>
-      <a href="#" class="text-white">The Big Reviewski</a>
-      <a href="#" class="text-white">Quiz</a>
-    </nav>
+    <div class="flex justify-between items-center ">
+      <div class="hidden menu:block"></div>
+      <nav class="w-full flex flex-row justify-center gap-4 text-xxs p-2 box-border">
+        <p class="text-yellow uppercase order-1">TRENDING:</p>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 order-2 menu:order-4">Home News</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 order-3 menu:order-2">The Big Reviewski</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 order-4 menu:order-3">Quiz</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 order-4 hidden menu:block">Movies</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 order-4 hidden menu:block">Ukraine</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 order-4 hidden menu:block">Ireland</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 order-4 hidden menu:block">Sponsored</a>
+        <a href="#" class="text-white hover:text-yellow transition-all duration-100 order-4 hidden menu:block">The Batman</a>
+      </nav>  
+      <div class="border-l border-white border-opacity-25">
+      </div>  
+    </div>
   </header>
   <main class="p-3 box-border max-w-4xl m-auto bg-emerald sm:p-4">
     <div class="mb-9">
