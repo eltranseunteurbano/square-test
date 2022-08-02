@@ -5,7 +5,7 @@
 [X] Vite
 [X] AlpineJs
 [X] Talwind Css
-[ ] eslint - prettier
+[X] eslint - prettier
 
 ### Install
 `yarn install`
