@@ -146,35 +146,27 @@
           ],
         }">
           <h3 class="sections-title" x-text="title"></h3>
-          <div class="py-5 flex flex-col gap-4 sm:grid sm:grid-cols-2">
+          <div class="
+            py-5
+            flex flex-col
+            gap-4
+            sm:grid sm:grid-cols-2
+            [&:not(:first-child > div:first-child)]:bg-white
+          ">
             <template x-for="(card, index) in content">
-              <div
-                :class="
-                  index === 0
-                  ? 'bg-grass rounded-sm overflow-hidden'
-                  : 'bg-grass rounded-sm overflow-hidden grid grid-cols-5 sm:grid-cols-none'
-                "
-              >
-                <div 
-                  :class="
-                  index === 0
-                  ? ''
-                  : 'col-span-2 sm:col-span-1'"
-                >
+              <div class="card" :class="index !== 0 && 'horizontal-card'">
+                <div :class="index !== 0 && 'card-image-content'">
                   <img
-                    class="w-full object-cover aspect-video"
+                    class="card-image"
                     :src="card.img"
                     :alt="card.title"
                   />
                 </div>
                 <div 
-                :class="
-                  index === 0
-                  ? 'p-4 box-border'
-                  : 'px-4 col-span-3 flex flex-col justify-center item-start box-border sm:p-4 sm:col-span-1'
-                ">
-                  <h4 class="text-white text-base font-semibold capitalize mb-4" x-text="card.title"></h4>
-                  <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
+                class="box-border p-4"
+                :class="index !== 0 && 'card-content'">
+                  <h4 class="card-title" x-text="card.title"></h4>
+                  <div class="card-tag">
                     <span class="text-white" x-text="card.tag"></span>
                     <span class="text-blue">/</span>
                     <span class="text-white" x-text="card.shares + ' shares'"></span>
@@ -194,7 +186,7 @@
               <div class="mb-4 relative sm:mb-0 sm:-ml-60">
                 <div class="hidden absolute top-0 left-0 w-80 h-full bg-gradient-to-r z-10 from-black sm:block"></div>
                 <img
-                  class="w-full object-cover aspect-video sm:w-auto sm:h-full"
+                  class="card-image sm:w-auto sm:h-full"
                   src="/content/umbrella.jpg"
                   alt="Get 4 months for €7.50 per month"
                 />
@@ -229,6 +221,11 @@
           title: 'Trending',
           content: [
             {
+              title: 'Billions',
+              img: '/content/billions.jpg',
+              shares: 9,
+              tag: 'Action'
+            },{
               title: '9-1-1',
               img: '/content/911.jpg',
               shares: 5,
@@ -267,35 +264,73 @@
           ]
         }">
           <h3 class="sections-title" x-text="title"></h3>
-          <div class="py-5 flex flex-col gap-4 sm:grid sm:grid-cols-2">
+          <div class="py-5 flex flex-col gap-4 sm:grid sm:grid-cols-3 sm:grid-rows-6">
             <template x-for="(card, index) in content">
               <div
-                :class="
-                  index === 0
-                  ? 'bg-grass rounded-sm overflow-hidden'
-                  : 'bg-grass rounded-sm overflow-hidden grid grid-cols-5 sm:grid-cols-none'
+                class="
+                bg-grass
+                rounded-sm overflow-hidden
+
+                sm:[&:nth-child(2)]:horizontal-card
+                sm:[&:nth-child(3)]:horizontal-card
+                sm:[&:nth-child(4)]:horizontal-card
+
+                sm:[&:nth-child(2)]:col-span-2
+                sm:[&:nth-child(2)]:row-span-2
+                sm:[&:nth-child(2)]:grid
+                sm:[&:nth-child(2)]:grid-cols-5
+                sm:[&:nth-child(2)]:order-1
+                sm:[&:nth-child(2)>div:first-child]:col-span-2
+                sm:[&:nth-child(2)>div:first-child>img]:h-full
+                sm:[&:nth-child(2)>div:first-child>img]:w-auto
+                sm:[&:nth-child(2)>div:last-child]:col-span-3
+                sm:[&:nth-child(2)>div:last-child]:card-content
+                sm:[&:nth-child(2)]:horizontal-card
+
+                sm:[&:nth-child(5)]:row-span-3
+                sm:[&:nth-child(5)]:order-2
+
+                sm:[&:nth-child(3)]:col-span-2
+                sm:[&:nth-child(3)]:row-span-2
+                sm:[&:nth-child(3)]:grid
+                sm:[&:nth-child(3)]:grid-cols-5
+                sm:[&:nth-child(3)]:order-3
+                sm:[&:nth-child(3)>div:first-child]:col-span-2
+                sm:[&:nth-child(3)>div:first-child>img]:h-full
+                sm:[&:nth-child(3)>div:first-child>img]:w-auto
+                sm:[&:nth-child(3)>div:last-child]:col-span-3
+
+                sm:[&:nth-child(6)]:row-span-3
+                sm:[&:nth-child(6)]:order-4
+                
+                sm:[&:nth-child(4)]:col-span-2
+                sm:[&:nth-child(4)]:row-span-2
+                sm:[&:nth-child(4)]:grid
+                sm:[&:nth-child(4)]:grid-cols-5
+                sm:[&:nth-child(4)]:order-5
+                sm:[&:nth-child(4)>div:first-child]:col-span-2
+                sm:[&:nth-child(4)>div:first-child>img]:h-full
+                sm:[&:nth-child(4)>div:first-child>img]:w-auto
+                sm:[&:nth-child(4)>div:last-child]:col-span-3
+
+                sm:[&:nth-child(7)]:order-6
+                sm:[&:nth-child(8)]:order-7
+                sm:[&:nth-child(9)]:order-8
                 "
+                :class="index !== 0 && 'horizontal-card'"
               >
-                <div 
-                  :class="
-                  index === 0
-                  ? ''
-                  : 'col-span-2 sm:col-span-1'"
-                >
+                <div :class="index !== 0 && 'card-image-content'">
                   <img
-                    class="w-full object-cover aspect-video"
+                    class="card-image"
                     :src="card.img"
                     :alt="card.title"
                   />
                 </div>
                 <div 
-                :class="
-                  index === 0
-                  ? 'p-4 box-border'
-                  : 'px-4 col-span-3 flex flex-col justify-center item-start box-border sm:p-4 sm:col-span-1'
-                ">
-                  <h4 class="text-white text-base font-semibold capitalize mb-4" x-text="card.title"></h4>
-                  <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
+                class="box-border p-4"
+                :class="index !== 0 && 'card-content'">
+                  <h4 class="card-title" x-text="card.title"></h4>
+                  <div class="card-tag">
                     <span class="text-white" x-text="card.tag"></span>
                     <span class="text-blue">/</span>
                     <span class="text-white" x-text="card.shares + ' shares'"></span>
@@ -303,7 +338,7 @@
                 </div>
               </div>
             </template>
-            <button class="w-full main-btn capitalize">
+            <button class="w-full main-btn capitalize order-10 col-start-2">
               Show more
             </button>
           </div>
@@ -335,17 +370,17 @@
           <h3 class="sections-title" x-text="title"></h3>
           <div class="py-5 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <template x-for="card in content">
-              <div class="bg-grass rounded-sm overflow-hidden">
+              <div class="card">
                 <div>
                   <img
-                    class="w-full object-cover aspect-video"
+                    class="card-image"
                     :src="card.img"
                     :alt="card.title"
                   />
                 </div>
                 <div class="p-4 box-border">
-                  <h4 class="text-white text-base font-semibold capitalize mb-4" x-text="card.title"></h4>
-                  <div class="text-xs flex flex-row gap-2 opacity-70 uppercase">
+                  <h4 class="card-title" x-text="card.title"></h4>
+                  <div class="card-tag">
                     <span class="text-white" x-text="card.tag"></span>
                     <span class="text-blue">/</span>
                     <span class="text-white" x-text="card.shares + ' shares'"></span>

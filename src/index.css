@@ -15,6 +15,27 @@
   .second-btn {
     @apply bg-grass text-white text-xs p-3 font-semibold
   }
+  .card {
+    @apply bg-grass rounded-sm overflow-hidden
+  }
+  .horizontal-card {
+    @apply grid grid-cols-5 sm:grid-cols-none
+  }
+  .card-content {
+    @apply px-4 col-span-3 flex flex-col justify-center items-start sm:col-span-1
+  }
+  .card-image-content {
+    @apply col-span-2 sm:col-span-1
+  }
+  .card-image {
+    @apply w-full object-cover aspect-video
+  }
+  .card-title {
+    @apply text-white text-base font-semibold capitalize mb-4
+  }
+  .card-tag {
+    @apply text-xs flex flex-row gap-2 opacity-70 uppercase
+  }
 }
 
 :root {

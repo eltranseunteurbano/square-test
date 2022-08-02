@@ -25,5 +25,10 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('child', '& > *');
+    },
+    require('tailwind-children'),
+  ],
 }
