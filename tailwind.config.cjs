@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.html",
   ],
   theme: {
     colors: {
@@ -28,7 +28,6 @@ module.exports = {
   plugins: [
     function ({ addVariant }) {
       addVariant('child', '& > *');
-    },
-    require('tailwind-children'),
+    }
   ],
 }
